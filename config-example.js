@@ -1,0 +1,4 @@
+module.exports = {
+  MONGO_URI: "your_mongo_uri_here",
+  JWT_SECRET: "your_jwt_secret_here",
+};

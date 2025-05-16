@@ -12,4 +12,9 @@ const createIngredient = async (req, res) => {
   }
 };
 
-module.exports = { createIngredient };
+const getIngredient = async (req, res) => {
+  const ingredients = await Ingredient.find();
+  res.send(ingredients);
+};
+
+module.exports = { createIngredient, getIngredient };
