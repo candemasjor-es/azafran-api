@@ -4,6 +4,8 @@ const jsonwebtoken = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 
 const login = async (req, res) => {
+  // #swagger.tags = ['Users']
+  // #swagger.summary = 'Para post login'
   // Recibir username y password
   const { username, password } = req.body;
   if (!username || !password) {
@@ -32,6 +34,8 @@ const login = async (req, res) => {
 };
 
 const register = async (req, res) => {
+  // #swagger.tags = ['Users']
+  // #swagger.summary = 'Para crear register'
   // Recibir usuario y password
   const { username, password } = req.body;
   if (!username || !password) {

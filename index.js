@@ -4,6 +4,8 @@ const cors = require("cors");
 const express = require("express");
 const { dbConnection } = require("./db");
 const { auth } = require("./middlewares/auth");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json");
 
 const recipesRoutes = require("./routes/recipes.routes");
 const ingredientsRoutes = require("./routes/ingredients.routes");
@@ -17,6 +19,7 @@ const main = () => {
   app.use("/recipes", auth, recipesRoutes);
   app.use("/ingredients", auth, ingredientsRoutes);
   app.use("/", usersRoutes);
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   dbConnection();
 

@@ -4,19 +4,15 @@ const router = express.Router();
 const {
   createIngredient,
   getIngredient,
+  patchIngrediente,
+  deleteIngredient,
 } = require("../controllers/ingredient.controller");
 
 router.post("/", createIngredient);
 
-router.patch("/:id", (req, res) => {
-  // Actualizar un ingrediente
-  res.send("Patch ingredient");
-});
+router.patch("/:id", patchIngrediente);
 
-router.delete("/:id", (req, res) => {
-  // Eliminar un ingrediente
-  res.send("Delete ingredient");
-});
+router.delete("/:id", deleteIngredient);
 
 router.get("/", getIngredient);
 
