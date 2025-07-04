@@ -11,12 +11,12 @@
     "http"
   ],
   "paths": {
-    "/recipes/": {
+    "/recipes/user": {
       "get": {
         "tags": [
           "Recipes"
         ],
-        "summary": "Para guardar Recipes",
+        "summary": "To get user stored recipes",
         "description": "",
         "parameters": [
           {
@@ -26,11 +26,71 @@
           }
         ],
         "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/recipes/": {
+      "get": {
+        "tags": [
+          "Recipes"
+        ],
+        "summary": "To get AI generated recipes",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "ingredients",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
           "200": {
             "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "summary": "To store a recipe into the database",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -62,10 +122,6 @@
         }
       },
       "get": {
-        "tags": [
-          "Ingredients"
-        ],
-        "summary": "Para get ingredientes",
         "description": "",
         "parameters": [
           {
@@ -86,10 +142,6 @@
     },
     "/ingredients/{id}": {
       "patch": {
-        "tags": [
-          "Ingredients"
-        ],
-        "summary": "Para patch ingredientes",
         "description": "",
         "parameters": [
           {
@@ -114,10 +166,6 @@
         }
       },
       "delete": {
-        "tags": [
-          "Ingredients"
-        ],
-        "summary": "Para borrar ingredientes",
         "description": "",
         "parameters": [
           {
@@ -144,10 +192,6 @@
     },
     "/login": {
       "post": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "Para post login",
         "description": "",
         "parameters": [
           {
@@ -186,10 +230,6 @@
     },
     "/register": {
       "post": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "Para crear register",
         "description": "",
         "parameters": [
           {
